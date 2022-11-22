@@ -11,44 +11,47 @@ public class CitaMedica {
 	private Paciente paciente;
 
 	public void agendar(String numero, LocalDateTime fechaCita, String nombreMedico, String cedulaMedico,
-			String nombrePaciente, String cedulaPaciente,String tipo) {
-		this.numero=numero;
-		this.fechaCita=fechaCita;
-		this.fechaAgenda=LocalDateTime.now();
-		
-		Medico medicoObjeto=new Medico();
+			String nombrePaciente, String cedulaPaciente, String tipo) {
+		this.numero = numero;
+		this.fechaCita = fechaCita;
+		this.fechaAgenda = LocalDateTime.now();
+
+		Medico medicoObjeto = new Medico();
 		medicoObjeto.setCedula(cedulaMedico);
 		medicoObjeto.setNombre(nombreMedico);
-		
-		this.medico=medicoObjeto;
-		
-		//tercera edad (TE) y niño (N)
-		if(tipo.equals("TE")) {
-			PacienteTerceraEdad pacienteTE=new PacienteTerceraEdad();
+
+		this.medico = medicoObjeto;
+
+		// tercera edad (TE) y niño (N)
+		if (tipo.equals("TE")) {
+			PacienteTerceraEdad pacienteTE = new PacienteTerceraEdad();
 			pacienteTE.setCodIess("234234");
 			pacienteTE.setTipo("TE");
-			
-			this.paciente=pacienteTE;
+
+			this.paciente = pacienteTE;
 			System.out.println("Paciente con descuento");
-		}else {
-			
-			PacienteNino pacienteNino= new PacienteNino();
+		}
+		if (tipo.equals("N")) {
+			PacienteNino pacienteNino = new PacienteNino();
 			pacienteNino.setPesonacimiento(5);
 			pacienteNino.setTipo("N");
-			
-			this.paciente=pacienteNino;
+
+			this.paciente = pacienteNino;
 			System.out.println("Paciente niño sin descuento");
+		} else {
+			PacienteCancer pc = new PacienteCancer();
+			System.out.println("Paciente cancer con el 30% de descuento");
 		}
-		
+
 		this.paciente.setCedula(cedulaPaciente);
 		this.paciente.setNombre(nombrePaciente);
-		
+
 		this.guardarCita(this);
-		
+
 	}
-	
+
 	private void guardarCita(CitaMedica cita) {
-		//Insert en la base de datos, guardar la cita
+		// Insert en la base de datos, guardar la cita
 		System.out.println("se ha generado la citamedico");
 		System.out.println(cita);
 	}

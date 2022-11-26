@@ -3,7 +3,7 @@ package com.example.demo.spring;
 import org.springframework.stereotype.Component;
 
 @Component
-public class PacienteTerceraEdadSB  extends PacienteSB{
+public class PacienteTerceraEdadSB extends PacienteSB {
 	private String codIess;
 
 	public String getCodIess() {

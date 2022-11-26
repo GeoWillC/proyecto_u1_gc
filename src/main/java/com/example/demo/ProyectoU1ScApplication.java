@@ -19,8 +19,13 @@ public class ProyectoU1ScApplication implements CommandLineRunner {
 
 	@Autowired
 	private CitaMedicaSB citaMedicaSB;
+
+	@Autowired
 	private MedicoSB medicoSB;
-	
+
+	@Autowired
+	private PacienteCancerSB cancerSB;
+
 	@Autowired
 	private PacienteTerceraEdadSB pacienteTE;
 
@@ -32,15 +37,20 @@ public class ProyectoU1ScApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("Spring boot");
-		
+
 		this.pacienteTE.setCodIess("sdfsdfsdfsdf");
 		this.pacienteTE.setNombre("Edison");
-		this.pacienteTE.setTipo("");
+		this.pacienteTE.setTipo("Cancer");
 		this.pacienteTE.setCedula("17512421412");
-	
 		
+
 		System.out.println(pacienteTE);
-		citaMedicaSB.agendar("12324124",LocalDateTime.of(2022, 12,2,8,30), pacienteTE, medicoSB);
+
+		this.cancerSB.setCedula("123214124");
+		this.cancerSB.setNombre("aniel");
+		this.cancerSB.setTipo("C");
+
+		citaMedicaSB.agendar("12324124", LocalDateTime.of(2022, 12, 2, 8, 30), this.cancerSB, medicoSB);
 	}
 
 }

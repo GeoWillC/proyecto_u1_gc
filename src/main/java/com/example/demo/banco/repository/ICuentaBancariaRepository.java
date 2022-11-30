@@ -4,7 +4,7 @@ import com.example.demo.banco.modelo.CuentaBancaria;
 
 public interface ICuentaBancariaRepository {
 	//
-	public CuentaBancaria busrcarPorNumero(String numeroCuenta);
+	public CuentaBancaria buscarPorNumero(String numeroCuenta);
 //	public void actualizar(CuentaBancaria cuentaBancaria);
 		
 	//CRUD

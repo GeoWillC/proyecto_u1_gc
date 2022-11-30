@@ -33,6 +33,11 @@ public class CuentaBancaria {
 	public void setTitular(String titular) {
 		this.titular = titular;
 	}
+	@Override
+	public String toString() {
+		return "CuentaBancaria [numero=" + numero + ", tipo=" + tipo + ", saldo=" + saldo + ", titular=" + titular
+				+ "]";
+	}
 	
 	
 }

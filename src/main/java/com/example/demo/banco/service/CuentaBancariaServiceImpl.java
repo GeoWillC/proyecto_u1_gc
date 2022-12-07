@@ -11,6 +11,7 @@ public class CuentaBancariaServiceImpl implements ICuentaBancariaService{
 
 	@Autowired
 	private ICuentaBancariaRepository bancariaRepository;
+	
 
 	@Override
 	public CuentaBancaria busrcarPorNumero(String numeroCuenta) {

@@ -12,4 +12,5 @@ public interface ITransferenciaService {
 	
 	
 	//CRUD construir
+	
 }

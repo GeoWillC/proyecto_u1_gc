@@ -51,4 +51,10 @@ public class Transferencia {
 		this.numero = numero;
 	}
 
+	@Override
+	public String toString() {
+		return "Transferencia [cuentaOrigen=" + cuentaOrigen + ", cuentaDestino=" + cuentaDestino + ", monto=" + monto
+				+ ", fecha=" + fecha + ", numero=" + numero + "]";
+	}
+
 }

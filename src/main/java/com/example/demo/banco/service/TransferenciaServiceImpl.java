@@ -11,10 +11,10 @@ import com.example.demo.banco.modelo.CuentaBancaria;
 import com.example.demo.banco.modelo.Transferencia;
 import com.example.demo.banco.repository.ITransferenciaRepository;
 
-@Service
+@Service		//Inversion of control  Gestion del control
 public class TransferenciaServiceImpl implements ITransferenciaService{
 	
-	@Autowired
+	@Autowired	//Dependecy injection 
 	private ITransferenciaRepository iTransferenciaRepository;
 	
 	@Autowired

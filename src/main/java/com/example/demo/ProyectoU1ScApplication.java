@@ -19,6 +19,7 @@ public class ProyectoU1ScApplication implements CommandLineRunner {
 	private ICuentaBancariaService bancariaService;
 
 	@Autowired
+	//@Qualifier("pequenio")
 	private ITransferenciaService iTransferenciaService;
 
 	public static void main(String[] args) {

@@ -26,9 +26,11 @@ public class ProyectoU1ScApplication implements CommandLineRunner {
 
 	@Autowired
 	public IVehiculoService iVehiculoService;
+	
 	@Autowired
 	public IPropietarioService iPropietarioService;
 	
+	@Autowired
 	public IMatriculaService iMatriculaService;
 
 	public static void main(String[] args) {

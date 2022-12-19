@@ -22,6 +22,7 @@ public class MatriculaServiceImpl implements IMatriculaService{
 	@Autowired
 	private IPropietarioRepository iPropietarioRepository;
 	
+	@Autowired
 	private IVehiculoRepository iVehiculoRepository;
 	
 	@Override
@@ -34,7 +35,6 @@ public class MatriculaServiceImpl implements IMatriculaService{
 		
 		Vehiculo vehiculo=this.iVehiculoRepository.buscar(placa);
 		matricula.setVehiculo(vehiculo);
-		matricula.setValor(null);
 		BigDecimal valor=null;
 		if(vehiculo.getTipo().equals("P")) {
 			valor=vehiculo.getPrecio().multiply(new BigDecimal(0.15));

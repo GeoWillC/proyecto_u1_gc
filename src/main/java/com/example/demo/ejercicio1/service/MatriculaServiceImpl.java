@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.ejercicio1.modelo.Matricula;
@@ -25,6 +26,7 @@ public class MatriculaServiceImpl implements IMatriculaService{
 	@Autowired
 	private IVehiculoRepository iVehiculoRepository;
 	
+	
 	@Override
 	public void matricular(String cedula, String placa) {
 		// TODO Auto-generated method stub
@@ -38,23 +40,23 @@ public class MatriculaServiceImpl implements IMatriculaService{
 		BigDecimal valor=null;
 		if(vehiculo.getTipo().equals("P")) {
 			valor=vehiculo.getPrecio().multiply(new BigDecimal(0.15));
-		}else {
+		}else if(vehiculo.getTipo().equals("L")){
 			//Liviano
 			valor=vehiculo.getPrecio().multiply(new BigDecimal(0.10));
+			
+		}else {
+			//Hibrido
 		}
 		
 		//-1 valor izquierda menor
 		//0 son iguales
-		//1 valor izquierda mayor
-		
+		//1 valor izquierda mayor		
 		if (valor.compareTo(new BigDecimal(2000))>1) {
 			BigDecimal descuento=valor.multiply(new BigDecimal(0.7));
 			valor=valor.subtract(descuento);
-			
 		}
 		matricula.setValor(valor);
 		this.iMatriculaRepository.insertar(matricula);
 	}
 	
-
 }
